@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexa Connectivity Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='connectivity.png') }}");
+            background-size: cover;  /* Cover the entire viewport */
+            background-repeat: no-repeat;
+            background-position: center center;  /* Center the image */
+            color: #ffffff;  /* Adjusting text color for readability */
+            font-family: Arial, sans-serif; /* Suggesting a default font for consistency */
+        }
+
+        /* Optional: Adding a slight overlay for better text readability */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: rgba(0, 0, 0, 0.2); /* Black overlay with 20% opacity */
+            z-index: -1;
+        }
+
+        h1, h2 {
+            color: #ffffff;  /* Ensuring these headings remain white */
+        }
+
+        h1 {
+            text-align: center; /* Centering the main heading */
+            margin-bottom: 20px; /* Giving space below the heading */
+        }
+
+        #upload-section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.4); /* Adding a background for better readability */
+            margin: 20px; /* Spacing around the section */
+            border-radius: 10px; /* Slight rounding of edges for aesthetics */
+        }
+
+        label, input, button {
+            margin-bottom: 10px; /* Spacing below each form element */
+        }
+
+        button {
+            padding: 10px 15px; /* Giving buttons some internal space */
+            background-color: #007BFF; /* A default blue color, adjust as needed */
+            color: #ffffff; /* White text on buttons */
+            border: none;
+            border-radius: 5px; /* Slight rounding of button edges */
+            cursor: pointer; /* Changes cursor on hover for better UX */
+            margin-right: 10px; /* Space between the buttons */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Nexa Connectivity Hub</h1>
+
+    <section id="upload-section">
+        <h2>Upload Files</h2>
+
+        <label for="template-upload">Upload Template</label>
+        <input type="file" id="template-upload" accept=".csv"><br>
+
+        <label for="tableA-upload">Upload Table A</label>
+        <input type="file" id="tableA-upload" accept=".csv"><br>
+
+        <label for="tableB-upload">Upload Table B</label>
+        <input type="file" id="tableB-upload" accept=".csv"><br>
+
+        <button onclick="processFiles()">Process Files</button>
+    </section>
+
+    <section id="mapping-section">
+        <!-- Dynamic content for column mapping will be added here via JavaScript -->
+    </section>
+
+    <section id="transformation-section">
+        <!-- Display transformation code or results here -->
+    </section>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>
